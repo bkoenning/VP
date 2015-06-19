@@ -9,11 +9,21 @@
 /* Begin PBXBuildFile section */
 		13984F831B2BCB31002F1E47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984F821B2BCB31002F1E47 /* main.m */; };
 		13984F861B2BCB31002F1E47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984F851B2BCB31002F1E47 /* AppDelegate.m */; };
-		13984F891B2BCB31002F1E47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984F881B2BCB31002F1E47 /* ViewController.m */; };
 		13984F8C1B2BCB31002F1E47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13984F8A1B2BCB31002F1E47 /* Main.storyboard */; };
 		13984F8E1B2BCB31002F1E47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13984F8D1B2BCB31002F1E47 /* Images.xcassets */; };
 		13984F911B2BCB32002F1E47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13984F8F1B2BCB32002F1E47 /* LaunchScreen.xib */; };
 		13984F9D1B2BCB32002F1E47 /* VPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984F9C1B2BCB32002F1E47 /* VPTests.m */; };
+		13984FA81B2BCCCA002F1E47 /* VancomycinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FA71B2BCCCA002F1E47 /* VancomycinViewController.m */; };
+		13984FAB1B2BCD4E002F1E47 /* BasicInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FAA1B2BCD4E002F1E47 /* BasicInformationViewController.m */; };
+		13984FAE1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FAD1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m */; };
+		13984FBC1B2BD780002F1E47 /* Age.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FB11B2BD780002F1E47 /* Age.m */; };
+		13984FBD1B2BD780002F1E47 /* Amputations.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FB31B2BD780002F1E47 /* Amputations.m */; };
+		13984FBE1B2BD780002F1E47 /* BasicInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FB51B2BD780002F1E47 /* BasicInformation.m */; };
+		13984FBF1B2BD780002F1E47 /* FloatValueWithUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FB71B2BD780002F1E47 /* FloatValueWithUnits.m */; };
+		13984FC01B2BD780002F1E47 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FB91B2BD780002F1E47 /* Gender.m */; };
+		13984FC11B2BD780002F1E47 /* Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FBB1B2BD780002F1E47 /* Height.m */; };
+		13984FC41B2BD7A0002F1E47 /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC31B2BD7A0002F1E47 /* Weight.m */; };
+		13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC61B2BD7D2002F1E47 /* TableItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +42,34 @@
 		13984F821B2BCB31002F1E47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13984F841B2BCB31002F1E47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13984F851B2BCB31002F1E47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13984F871B2BCB31002F1E47 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		13984F881B2BCB31002F1E47 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		13984F8B1B2BCB31002F1E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13984F8D1B2BCB31002F1E47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13984F901B2BCB32002F1E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13984F961B2BCB32002F1E47 /* VPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13984F9B1B2BCB32002F1E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13984F9C1B2BCB32002F1E47 /* VPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPTests.m; sourceTree = "<group>"; };
+		13984FA61B2BCCB9002F1E47 /* VancomycinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VancomycinViewController.h; sourceTree = "<group>"; };
+		13984FA71B2BCCCA002F1E47 /* VancomycinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VancomycinViewController.m; sourceTree = "<group>"; };
+		13984FA91B2BCD26002F1E47 /* BasicInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicInformationViewController.h; sourceTree = "<group>"; };
+		13984FAA1B2BCD4E002F1E47 /* BasicInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInformationViewController.m; sourceTree = "<group>"; };
+		13984FAC1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VancomcyinNavigationControllerViewController.h; sourceTree = "<group>"; };
+		13984FAD1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VancomcyinNavigationControllerViewController.m; sourceTree = "<group>"; };
+		13984FB01B2BD780002F1E47 /* Age.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Age.h; sourceTree = "<group>"; };
+		13984FB11B2BD780002F1E47 /* Age.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Age.m; sourceTree = "<group>"; };
+		13984FB21B2BD780002F1E47 /* Amputations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amputations.h; sourceTree = "<group>"; };
+		13984FB31B2BD780002F1E47 /* Amputations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amputations.m; sourceTree = "<group>"; };
+		13984FB41B2BD780002F1E47 /* BasicInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInformation.h; sourceTree = "<group>"; };
+		13984FB51B2BD780002F1E47 /* BasicInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInformation.m; sourceTree = "<group>"; };
+		13984FB61B2BD780002F1E47 /* FloatValueWithUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatValueWithUnits.h; sourceTree = "<group>"; };
+		13984FB71B2BD780002F1E47 /* FloatValueWithUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatValueWithUnits.m; sourceTree = "<group>"; };
+		13984FB81B2BD780002F1E47 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
+		13984FB91B2BD780002F1E47 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
+		13984FBA1B2BD780002F1E47 /* Height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Height.h; sourceTree = "<group>"; };
+		13984FBB1B2BD780002F1E47 /* Height.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Height.m; sourceTree = "<group>"; };
+		13984FC21B2BD7A0002F1E47 /* Weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
+		13984FC31B2BD7A0002F1E47 /* Weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weight.m; sourceTree = "<group>"; };
+		13984FC51B2BD7D2002F1E47 /* TableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableItem.h; sourceTree = "<group>"; };
+		13984FC61B2BD7D2002F1E47 /* TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +93,7 @@
 		13984F741B2BCB31002F1E47 = {
 			isa = PBXGroup;
 			children = (
+				13984FAF1B2BD73A002F1E47 /* Measures */,
 				13984F7F1B2BCB31002F1E47 /* VP */,
 				13984F991B2BCB32002F1E47 /* VPTests */,
 				13984F7E1B2BCB31002F1E47 /* Products */,
@@ -81,10 +112,14 @@
 		13984F7F1B2BCB31002F1E47 /* VP */ = {
 			isa = PBXGroup;
 			children = (
+				13984FAC1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.h */,
+				13984FAD1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m */,
+				13984FA91B2BCD26002F1E47 /* BasicInformationViewController.h */,
+				13984FAA1B2BCD4E002F1E47 /* BasicInformationViewController.m */,
+				13984FA61B2BCCB9002F1E47 /* VancomycinViewController.h */,
+				13984FA71B2BCCCA002F1E47 /* VancomycinViewController.m */,
 				13984F841B2BCB31002F1E47 /* AppDelegate.h */,
 				13984F851B2BCB31002F1E47 /* AppDelegate.m */,
-				13984F871B2BCB31002F1E47 /* ViewController.h */,
-				13984F881B2BCB31002F1E47 /* ViewController.m */,
 				13984F8A1B2BCB31002F1E47 /* Main.storyboard */,
 				13984F8D1B2BCB31002F1E47 /* Images.xcassets */,
 				13984F8F1B2BCB32002F1E47 /* LaunchScreen.xib */,
@@ -117,6 +152,29 @@
 				13984F9B1B2BCB32002F1E47 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13984FAF1B2BD73A002F1E47 /* Measures */ = {
+			isa = PBXGroup;
+			children = (
+				13984FC51B2BD7D2002F1E47 /* TableItem.h */,
+				13984FC61B2BD7D2002F1E47 /* TableItem.m */,
+				13984FC21B2BD7A0002F1E47 /* Weight.h */,
+				13984FC31B2BD7A0002F1E47 /* Weight.m */,
+				13984FB01B2BD780002F1E47 /* Age.h */,
+				13984FB11B2BD780002F1E47 /* Age.m */,
+				13984FB21B2BD780002F1E47 /* Amputations.h */,
+				13984FB31B2BD780002F1E47 /* Amputations.m */,
+				13984FB41B2BD780002F1E47 /* BasicInformation.h */,
+				13984FB51B2BD780002F1E47 /* BasicInformation.m */,
+				13984FB61B2BD780002F1E47 /* FloatValueWithUnits.h */,
+				13984FB71B2BD780002F1E47 /* FloatValueWithUnits.m */,
+				13984FB81B2BD780002F1E47 /* Gender.h */,
+				13984FB91B2BD780002F1E47 /* Gender.m */,
+				13984FBA1B2BD780002F1E47 /* Height.h */,
+				13984FBB1B2BD780002F1E47 /* Height.m */,
+			);
+			name = Measures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +277,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13984F891B2BCB31002F1E47 /* ViewController.m in Sources */,
+				13984FBF1B2BD780002F1E47 /* FloatValueWithUnits.m in Sources */,
+				13984FAB1B2BCD4E002F1E47 /* BasicInformationViewController.m in Sources */,
 				13984F861B2BCB31002F1E47 /* AppDelegate.m in Sources */,
 				13984F831B2BCB31002F1E47 /* main.m in Sources */,
+				13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */,
+				13984FC01B2BD780002F1E47 /* Gender.m in Sources */,
+				13984FBC1B2BD780002F1E47 /* Age.m in Sources */,
+				13984FA81B2BCCCA002F1E47 /* VancomycinViewController.m in Sources */,
+				13984FBE1B2BD780002F1E47 /* BasicInformation.m in Sources */,
+				13984FBD1B2BD780002F1E47 /* Amputations.m in Sources */,
+				13984FC11B2BD780002F1E47 /* Height.m in Sources */,
+				13984FAE1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m in Sources */,
+				13984FC41B2BD7A0002F1E47 /* Weight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
