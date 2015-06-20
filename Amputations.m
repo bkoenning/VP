@@ -24,6 +24,9 @@
     [[self amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg"];
     [[self amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_lower_leg"];
     [[self amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_leg"];
+    [[self amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_arm_checked_first"];
+    [[self amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_arm_checked_first"];
+    [[self amps]setValue:[NSNumber ] forKey:<#(NSString *)#>]
     return self;
 }
 

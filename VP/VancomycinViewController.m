@@ -49,7 +49,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog(@"%lu",[objects count]);
     return [objects count];
 }
 
@@ -69,7 +68,10 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
     TableItem *thing = objects[indexPath.row];
-    //NSLog(@"%@",[thing tableHeader]);
+    if (thing == basicInformation && [basicInformation isSet]){
+        NSLog(@"%@", @"Equals basic information");
+        [[cell detailTextLabel]setText:[basicInformation description]];
+    }
     [[cell textLabel]setText:[thing tableHeader]];
     return cell;
 }
