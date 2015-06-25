@@ -31,7 +31,6 @@
 @property (nonatomic) IBOutlet UITextField *textFieldHeight;
 @property (nonatomic) IBOutlet UIButton *buttonValidate;
 
-//@property (strong,nonatomic) BasicInformation *basicInformationObject;
 
 -(IBAction)updateLLL:(id)sender;
 -(IBAction)updateLLA:(id)sender;
@@ -44,7 +43,6 @@
 
 -(IBAction) validateAndLockInformation:(UIButton*)sender;
 
-//- (IBAction)changedDetail:(id)sender;
 
 
 

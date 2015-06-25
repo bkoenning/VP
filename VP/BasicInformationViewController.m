@@ -21,6 +21,7 @@
     NSString *checkboxfull;
     NSString *checkboxempty;
     BOOL lua_checked_first, rua_checked_first, lul_checked_first, rul_checked_first;
+    NSMutableArray *enabledViews;
 }
 -(void)configureView;
 @end
@@ -30,19 +31,34 @@
 @synthesize segGender,segHeightUnits,segWeightUnits,buttonLLArm,buttonLLLeg,buttonLUArm,
 buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFieldHeight,textFieldWeight,buttonValidate,detailItem;
 
+-(void)dealloc
+{
+    checkboxempty = nil;
+    checkboxfull = nil;
+    segGender = nil;
+    segHeightUnits = nil;
+    segWeightUnits = nil;
+    buttonLLArm = nil;
+    detailItem = nil;
+    
+}
+
 -(void)setDetailItem:(BasicInformation*)newDetailItem
 {
     if (newDetailItem != nil && [self detailItem] != newDetailItem){
         detailItem = newDetailItem;
-        [self configureView];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureView];
     checkboxempty = @"checkbox_empty";
     checkboxfull = @"checkbox_full";
+    enabledViews = [NSMutableArray arrayWithObjects:segGender,segHeightUnits,segWeightUnits,
+                    textFieldWeight,textFieldAge, textFieldHeight,buttonLLArm, buttonLLLeg,
+                    buttonLUArm, buttonLULeg, buttonRLArm, buttonRLLeg, buttonRUArm, buttonRULeg, nil ];
+    
+    [self configureView];
     // Do any additional setup after loading the view.
 }
 
@@ -53,33 +69,89 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
 -(void)configureView
 {
     if (detailItem != nil){
-        if (detailItem.isSet){
+        if ([[self detailItem]isSet]){
+            [[self buttonValidate]setTitle:@"Unlock Information" forState:UIControlStateNormal];
             [[self textFieldHeight]setText:[[[self detailItem]height]valueDescription]];
             [[self textFieldWeight]setText:[[[self detailItem]weight]valueDescription]];
             [[self textFieldAge]setText:[NSString stringWithFormat:@"%d", [[[self detailItem]age]age]]];
-            if ([[[self detailItem]gender]gender] =='f'){
+            if ([[[self detailItem]gender]gender] =='f')
                 [[self segGender]setSelectedSegmentIndex:1];
-            }
-            else if ([[[self detailItem]gender]gender] =='m'){
+            
+            else if ([[[self detailItem]gender]gender] =='m')
                 [[self segGender]setSelectedSegmentIndex:0];
-            }
-            if ([[[self detailItem]weight]unit]== KG){
+            
+            if ([[[self detailItem]weight]unit]== KG)
                 [[self segWeightUnits]setSelectedSegmentIndex:0];
-                // NSLog(@"%d",[[[self basicInformationObject]weight]unit]);
-            }
-            else if ([[[self detailItem]weight]unit]== LB){
+            
+            else if ([[[self detailItem]weight]unit]== LB)
                 [[self segWeightUnits]setSelectedSegmentIndex:1];
-                //           NSLog(@"%d",[[[self basicInformationObject]weight]unit]);
-            }
-            if ([[[self detailItem]height]unit] == CM){
+            
+            if ([[[self detailItem]height]unit] == CM)
                 [[self segHeightUnits]setSelectedSegmentIndex:0];
-            }
-            else if ([[[self detailItem]height]unit] == IN){
+            
+            else if ([[[self detailItem]height]unit] == IN)
                 [[self segHeightUnits]setSelectedSegmentIndex:1];
             
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_leg"] == [NSNumber numberWithBool:YES]){
+                [[self buttonRULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                rul = YES;
+            }
+            else{
+                [[self buttonRULeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_leg"] == [NSNumber numberWithBool:YES]){
+                [[self buttonLULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                 lul = YES;
+            }
+            else{
+                [[self buttonLULeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_leg"]== [NSNumber numberWithBool:YES]){
+                [[self buttonLLLeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                lll = YES;
+            }
+            else{
+                [[self buttonLLLeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"right_lower_leg"] == [NSNumber numberWithBool:YES]){
+                [[self buttonRLLeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                rll = YES;
+            }
+            else{
+                [[self buttonRLLeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_arm"]== [NSNumber numberWithBool:YES]){
+                [[self buttonLUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                lua = YES;
+            }
+            else{
+                [[self buttonLUArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_arm"]== [NSNumber numberWithBool:YES]){
+                [[self buttonLLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                lla = YES;
+            }
+            else{
+                [[self buttonLLArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_arm"] == [NSNumber numberWithBool:YES]){
+                [[self buttonRUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                rua = YES;
+            }
+            else{
+                [[self buttonRUArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            if ([[[[self detailItem]amputations]amps]valueForKey:@"right_lower_arm"]== [NSNumber numberWithBool:YES]){
+                [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
+                rla = YES;
+            }
+            else{
+                [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
+            }
+            for (UIControl* con in enabledViews){
+                [con setEnabled:NO];
+            }
         }
-        }
-        
     }
 }
 
@@ -249,7 +321,15 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
     BOOL isWeightMatch = weightMatch != nil;
     BOOL isHeightMatch = heightMatch != nil;
     BOOL isAgeMatch = ageMatch != nil;
-    if (!isWeightMatch){
+    
+    if ([[[[self buttonValidate]titleLabel]text] isEqualToString:@"Unlock Information"]){
+        for (UIControl* con in enabledViews){
+            [con setEnabled:YES];
+        }
+        [[self buttonValidate]setTitle:@"Lock Information" forState:UIControlStateNormal];
+        [[self detailItem]setIsSet:NO];
+    }
+    else if (!isWeightMatch){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for weight" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter weight" otherButtonTitles:nil];
         [alert show];
     }
@@ -287,7 +367,7 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Height must be between 152.4 and 228.6 centimeters" message:@"Height is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid height" otherButtonTitles:nil];
         [alert show];
     }
-    else{
+    else if ([[[[self buttonValidate]titleLabel]text]isEqualToString:@"Lock Information"] && ![[self detailItem]isSet]){
         [[self detailItem]setIsSet:YES];
         [[self detailItem]setWeight:[[Weight alloc]initWithValue:[[[self textFieldWeight]text]floatValue]
                                                                        units:(int)[[self segWeightUnits]selectedSegmentIndex]]];
@@ -299,45 +379,45 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         else if ([[self segGender]selectedSegmentIndex] == 1)
             [[self detailItem]setGender:[[Gender alloc]initWithChar:'f']];
         if (lla)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"left_lower_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"left_lower_arm"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"left_lower_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_lower_arm"];
         if (lua)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_arm"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_arm"];
         if (lll)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"left_lower_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"left_lower_leg"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"left_lower_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_lower_leg"];
         if (lul)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_leg"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_leg"];
         
         if (rla)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"right_lower_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_lower_arm"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"right_lower_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_lower_arm"];
         if (rua)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_arm"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_arm"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_arm"];
         if (rll)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"right_lower_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_lower_leg"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"right_lower_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_lower_leg"];
         if (rul)
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_leg"];
         else
-            [[[self detailItem]amputations]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg"];
+            [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg"];
         
-        
-        
+        [[self buttonValidate]setTitle:@"Unlock Information" forState:UIControlStateNormal];
+        for (UIControl* con in enabledViews){
+            [con setEnabled:NO];
+        }
         [[self detailItem]postDidChangeNotification];
-        //NSLog(@"%d",[[self basicInformationObject]isSet]);
     }
-    
 }
 
 

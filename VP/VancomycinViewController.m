@@ -69,7 +69,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
     TableItem *thing = objects[indexPath.row];
     if (thing == basicInformation && [basicInformation isSet]){
-        NSLog(@"%@", @"Equals basic information");
+        //NSLog(@"%@", @"Equals basic information");
         [[cell detailTextLabel]setText:[basicInformation description]];
     }
     [[cell textLabel]setText:[thing tableHeader]];
@@ -89,7 +89,7 @@
     if ([[segue identifier]isEqualToString:@"toBasicInformation"]){
         NSIndexPath *indexPath = [[self tableView]indexPathForSelectedRow];
         BasicInformation *item = objects[indexPath.row];
-        NSLog(@"%@",[item description]);
+        //NSLog(@"%@",[item description]);
         [[segue destinationViewController]setDetailItem: item];
     }
 }

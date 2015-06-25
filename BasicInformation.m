@@ -7,7 +7,7 @@
 //
 
 #import "BasicInformation.h"
-
+#import "Amputations.h"
 
 @implementation BasicInformation
 
