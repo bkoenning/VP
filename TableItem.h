@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #define kTableItemChanged    @"TableItemChange"
+
 @interface TableItem : NSObject
 
 @property NSString *tableHeader;
 @property BOOL isSet;
+
+-(id) initWithTitle: (NSString*) title;
 
 - (void)postDidChangeNotification;
 

@@ -10,14 +10,24 @@
 
 @implementation TableItem
 
-@synthesize tableHeader;
+@synthesize tableHeader, isSet;
 
 -(id)init
 {
     self = [super init];
     [self setTableHeader:@""];
+    [self setIsSet:NO];
     return self;
 }
+
+-(instancetype) initWithTitle:(NSString *)title
+{
+    self = [super init];
+    [self setTableHeader:title];
+    [self setIsSet:NO];
+    return self;
+}
+
 
 - (void)postDidChangeNotification
 {
