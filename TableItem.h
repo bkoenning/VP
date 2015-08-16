@@ -12,11 +12,11 @@
 
 @interface TableItem : NSObject
 
-@property NSString *tableHeader;
+@property (nonatomic) NSString *tableHeader;
 @property BOOL isSet;
 
 -(id) initWithTitle: (NSString*) title;
 
-- (void)postDidChangeNotification;
+-(void)postDidChangeNotification;
 
 @end

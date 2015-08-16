@@ -12,7 +12,9 @@
 
 @property char gender;
 
--(id)initWithChar:(char)g;
+-(instancetype)initWithChar:(char) g;
+-(instancetype)initWithInt:(int) i;
+-(float) getIdealBodyWeightStartInKg;
 
 
 @end

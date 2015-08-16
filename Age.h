@@ -8,11 +8,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NumberValue.h"
 
-@interface Age : NSObject
 
-@property int age;
+@interface Age : NSObject <NumberValue>
 
--(id)initWithInteger:(int)a;
+@property (nonatomic) NSNumber *age;
+
+-(instancetype)initWithInteger:(int)a;
 
 @end

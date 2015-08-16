@@ -13,23 +13,24 @@
 #import "Age.h"
 #import "Amputations.h"
 #import "TableItem.h"
+#import "IdealBodyWeight.h"
 
 
 
 
 @interface BasicInformation : TableItem
 
-@property Weight *weight;
-@property Height *height;
-@property Gender *gender;
-@property Amputations *amputations;
-@property Age *age;
-//@property BOOL isSet;
-//@property NSString *tableHeader;
+@property (nonatomic) Weight *weight;
+@property (nonatomic) Height *height;
+@property (nonatomic) Gender *gender;
+@property (nonatomic) Amputations *amputations;
+@property (nonatomic) Age *age;
+//@property (nonatomic) IdealBodyWeight *ibw;
 
+//-(instancetype) initWithTitle:(NSString *)title weight:(Weight*)w height: (Height*)h gender:(Gender*)g amputations:(Amputations*)amp age: (Age*)a;
 
+-(instancetype)initWithWeight:(Weight*)w height:(Height*)h gender:(Gender*)g amputations:(Amputations*)amp age:(Age*)a;
 
-
-
+-(Weight*) idealBodyWeight;
 
 @end

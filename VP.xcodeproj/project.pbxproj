@@ -24,6 +24,11 @@
 		13984FC11B2BD780002F1E47 /* Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FBB1B2BD780002F1E47 /* Height.m */; };
 		13984FC41B2BD7A0002F1E47 /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC31B2BD7A0002F1E47 /* Weight.m */; };
 		13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC61B2BD7D2002F1E47 /* TableItem.m */; };
+		BD51004A1B76F9F20006C51B /* IdealBodyWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5100491B76F9F20006C51B /* IdealBodyWeight.m */; };
+		BDA1A46E1B7EDE6E000FC731 /* SerumCreatinine.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA1A46D1B7EDE6E000FC731 /* SerumCreatinine.m */; };
+		BDE46AC21B7FE19F0092CF5E /* BUN.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC11B7FE19F0092CF5E /* BUN.m */; };
+		BDE46AC51B8010450092CF5E /* RenalInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC41B8010450092CF5E /* RenalInformation.m */; };
+		BDE46AC81B802E920092CF5E /* RenalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC71B802E920092CF5E /* RenalInformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,17 @@
 		13984FC31B2BD7A0002F1E47 /* Weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weight.m; sourceTree = "<group>"; };
 		13984FC51B2BD7D2002F1E47 /* TableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableItem.h; sourceTree = "<group>"; };
 		13984FC61B2BD7D2002F1E47 /* TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
+		BD5100481B76F9F20006C51B /* IdealBodyWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdealBodyWeight.h; sourceTree = "<group>"; };
+		BD5100491B76F9F20006C51B /* IdealBodyWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdealBodyWeight.m; sourceTree = "<group>"; };
+		BDA1A46C1B7EDE6E000FC731 /* SerumCreatinine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerumCreatinine.h; sourceTree = "<group>"; };
+		BDA1A46D1B7EDE6E000FC731 /* SerumCreatinine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerumCreatinine.m; sourceTree = "<group>"; };
+		BDD76EF51B7599200040EF32 /* NumberValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberValue.h; sourceTree = "<group>"; };
+		BDE46AC01B7FE19F0092CF5E /* BUN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUN.h; sourceTree = "<group>"; };
+		BDE46AC11B7FE19F0092CF5E /* BUN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUN.m; sourceTree = "<group>"; };
+		BDE46AC31B8010450092CF5E /* RenalInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenalInformation.h; sourceTree = "<group>"; };
+		BDE46AC41B8010450092CF5E /* RenalInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenalInformation.m; sourceTree = "<group>"; };
+		BDE46AC61B802E920092CF5E /* RenalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenalInformationViewController.h; sourceTree = "<group>"; };
+		BDE46AC71B802E920092CF5E /* RenalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenalInformationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +128,8 @@
 		13984F7F1B2BCB31002F1E47 /* VP */ = {
 			isa = PBXGroup;
 			children = (
+				BDE46AC61B802E920092CF5E /* RenalInformationViewController.h */,
+				BDE46AC71B802E920092CF5E /* RenalInformationViewController.m */,
 				13984FAC1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.h */,
 				13984FAD1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m */,
 				13984FA91B2BCD26002F1E47 /* BasicInformationViewController.h */,
@@ -159,6 +177,8 @@
 			children = (
 				13984FC51B2BD7D2002F1E47 /* TableItem.h */,
 				13984FC61B2BD7D2002F1E47 /* TableItem.m */,
+				BDA1A46C1B7EDE6E000FC731 /* SerumCreatinine.h */,
+				BDA1A46D1B7EDE6E000FC731 /* SerumCreatinine.m */,
 				13984FC21B2BD7A0002F1E47 /* Weight.h */,
 				13984FC31B2BD7A0002F1E47 /* Weight.m */,
 				13984FB01B2BD780002F1E47 /* Age.h */,
@@ -173,6 +193,13 @@
 				13984FB91B2BD780002F1E47 /* Gender.m */,
 				13984FBA1B2BD780002F1E47 /* Height.h */,
 				13984FBB1B2BD780002F1E47 /* Height.m */,
+				BDD76EF51B7599200040EF32 /* NumberValue.h */,
+				BD5100481B76F9F20006C51B /* IdealBodyWeight.h */,
+				BD5100491B76F9F20006C51B /* IdealBodyWeight.m */,
+				BDE46AC01B7FE19F0092CF5E /* BUN.h */,
+				BDE46AC11B7FE19F0092CF5E /* BUN.m */,
+				BDE46AC31B8010450092CF5E /* RenalInformation.h */,
+				BDE46AC41B8010450092CF5E /* RenalInformation.m */,
 			);
 			name = Measures;
 			sourceTree = "<group>";
@@ -282,6 +309,7 @@
 				13984F861B2BCB31002F1E47 /* AppDelegate.m in Sources */,
 				13984F831B2BCB31002F1E47 /* main.m in Sources */,
 				13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */,
+				BDE46AC21B7FE19F0092CF5E /* BUN.m in Sources */,
 				13984FC01B2BD780002F1E47 /* Gender.m in Sources */,
 				13984FBC1B2BD780002F1E47 /* Age.m in Sources */,
 				13984FA81B2BCCCA002F1E47 /* VancomycinViewController.m in Sources */,
@@ -290,6 +318,10 @@
 				13984FC11B2BD780002F1E47 /* Height.m in Sources */,
 				13984FAE1B2BCD9A002F1E47 /* VancomcyinNavigationControllerViewController.m in Sources */,
 				13984FC41B2BD7A0002F1E47 /* Weight.m in Sources */,
+				BDE46AC81B802E920092CF5E /* RenalInformationViewController.m in Sources */,
+				BDE46AC51B8010450092CF5E /* RenalInformation.m in Sources */,
+				BD51004A1B76F9F20006C51B /* IdealBodyWeight.m in Sources */,
+				BDA1A46E1B7EDE6E000FC731 /* SerumCreatinine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +516,7 @@
 				13984FA21B2BCB32002F1E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13984FA31B2BCB32002F1E47 /* Build configuration list for PBXNativeTarget "VPTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +525,7 @@
 				13984FA51B2BCB32002F1E47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

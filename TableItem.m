@@ -8,6 +8,11 @@
 
 #import "TableItem.h"
 
+
+@interface TableItem()
+
+@end
+
 @implementation TableItem
 
 @synthesize tableHeader, isSet;
@@ -33,6 +38,11 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kTableItemChanged
                                                         object:self];
+}
+
+-(void)dealloc
+{
+    tableHeader = nil;
 }
 
 @end

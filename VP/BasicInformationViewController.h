@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "Weight.h"
-#import "BasicInformation.h"
-#import "TableItem.h"
+@class BasicInformation;
+
 
 @interface BasicInformationViewController : UIViewController
 
@@ -31,7 +30,6 @@
 @property (nonatomic) IBOutlet UITextField *textFieldHeight;
 @property (nonatomic) IBOutlet UIButton *buttonValidate;
 
-
 -(IBAction)updateLLL:(id)sender;
 -(IBAction)updateLLA:(id)sender;
 -(IBAction)updateLUA:(id)sender;
@@ -42,10 +40,5 @@
 -(IBAction)updateRUL:(id)sender;
 
 -(IBAction) validateAndLockInformation:(UIButton*)sender;
-
-
-
-
-
 
 @end

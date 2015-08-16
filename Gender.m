@@ -12,7 +12,7 @@
 
 @synthesize gender;
 
--(id)initWithChar:(char)g
+-(instancetype)initWithChar:(char)g
 {
     self = [super init];
     if (self){
@@ -21,11 +21,39 @@
     return  self;
 }
 
--(id)init
+-(instancetype)initWithInt:(int)i
+{
+    if (i == 0){
+        self = [self initWithChar:'m'];
+    }
+    else
+        self = [self initWithChar:'f'];
+    
+    return self;
+}
+
+-(instancetype)init
 {
     self = [self initWithChar:'m'];
     return  self;
 }
+
+-(NSString*) description
+{
+    if ([self gender] == 'm') return @"male";
+    else return @"female";
+}
+
+-(float) getIdealBodyWeightStartInKg
+{
+    if ([self gender] == 'f')
+        return 45.5;
+    else return 50;
+}
+
+
+
+
 
 
 @end

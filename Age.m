@@ -8,21 +8,43 @@
 
 #import "Age.h"
 
+@interface Age()
+
+@end
+
 @implementation Age
 
--(id)initWithInteger:(int)a
+@synthesize age;
+
+-(instancetype)initWithInteger:(int)a
 {
     self = [super init];
     if (self){
-        [self setAge:a];
+        [self setAge:[NSNumber numberWithInt:a]];
     }
     return self;
 }
 
--(id)init
+
+-(instancetype)init
 {
     self = [self initWithInteger:0];
     return  self;
+}
+
+-(NSString*)valueAsString
+{
+    return [NSString stringWithFormat:@"%ld", (long)[[self age]integerValue]];
+}
+
+-(NSString*) unitString
+{
+    return @"years";
+}
+
+-(void)dealloc
+{
+    age = nil;
 }
 
 @end

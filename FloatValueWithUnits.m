@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Rebecca Koenning. All rights reserved.
 //
 
+/*
 #import "FloatValueWithUnits.h"
 
 @interface FloatValueWithUnits()
@@ -103,3 +104,5 @@
 }
 
 @end
+
+*/

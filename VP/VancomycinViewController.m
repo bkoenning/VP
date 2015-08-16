@@ -10,11 +10,14 @@
 #import "BasicInformation.h"
 #import "TableItem.h"
 #import "BasicInformationViewController.h"
+#import "RenalInformation.h"
+#import "RenalInformationViewController.h"
 
 @interface VancomycinViewController ()
 {
     NSMutableArray *objects;
     BasicInformation *basicInformation;
+    RenalInformation *renalInformation;
 }
 -(void)tableItemDidChangeNotification:(NSNotification*)notification;
 
@@ -25,15 +28,17 @@
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    objects = nil;
+    basicInformation = nil;
 }
 
 
 -(void)awakeFromNib
 {
     basicInformation = [[BasicInformation alloc]init];
-    objects = [@[
-                 basicInformation]
-               mutableCopy];
+    renalInformation = [[RenalInformation alloc] init];
+    //basicInformation = nil;
+    objects = [@[basicInformation, renalInformation] mutableCopy];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(tableItemDidChangeNotification:)
@@ -66,12 +71,29 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
+    UITableViewCell *cell;
     TableItem *thing = objects[indexPath.row];
-    if (thing == basicInformation && [basicInformation isSet]){
-        //NSLog(@"%@", @"Equals basic information");
-        [[cell detailTextLabel]setText:[basicInformation description]];
+    if (indexPath.row == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
+        if ([basicInformation isSet]){
+            [[cell detailTextLabel] setText:[basicInformation description]];
+        }
+        else{
+            [[cell detailTextLabel]setText:@""];
+        }
     }
+    else if (indexPath.row == 1){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"renalInformationCell" forIndexPath:indexPath];
+    }
+    //if (thing == basicInformation && [basicInformation isSet]){
+        //NSLog(@"%@", @"Equals basic information");
+      //  [[cell detailTextLabel]setText:[basicInformation description]];
+        
+   // }
+    //else{
+      //  [[cell detailTextLabel]setText:@""];
+   // }
     [[cell textLabel]setText:[thing tableHeader]];
     return cell;
 }
@@ -87,10 +109,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier]isEqualToString:@"toBasicInformation"]){
-        NSIndexPath *indexPath = [[self tableView]indexPathForSelectedRow];
-        BasicInformation *item = objects[indexPath.row];
+        //NSIndexPath *indexPath = [[self tableView]indexPathForSelectedRow];
+        //BasicInformation *item = objects[indexPath.row];
         //NSLog(@"%@",[item description]);
-        [[segue destinationViewController]setDetailItem: item];
+        [[segue destinationViewController]setDetailItem: basicInformation];
+    }
+    else if ([[segue identifier] isEqualToString:@"toRenalInformation"]){
+        [[segue destinationViewController]setDetailItem:renalInformation];
     }
 }
 
@@ -116,6 +141,7 @@
     }
     
 }
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -123,5 +149,6 @@
         self.detailViewController.detailItem = object;
     }
 }
+ */
 
 @end

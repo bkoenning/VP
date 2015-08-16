@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Rebecca Koenning. All rights reserved.
 //
 
+/*
 #import <Foundation/Foundation.h>
 
 typedef enum
@@ -40,3 +41,4 @@ typedef enum
 -(NSString*)valueDescription;
 
 @end
+ */

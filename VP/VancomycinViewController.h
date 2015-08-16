@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class BasicInformationViewController;
+@class RenalInformationViewController;
 
 @interface VancomycinViewController : UITableViewController
 
 @property (strong, nonatomic) BasicInformationViewController *detailViewController;
+@property (strong, nonatomic) RenalInformationViewController *renalViewController;
 
 
 @end

@@ -8,12 +8,6 @@
 
 #import "BasicInformationViewController.h"
 #import "BasicInformation.h"
-#import "Weight.h"
-#import "Height.h"
-#import "Age.h"
-#import "TableItem.h"
-#import "Amputations.h"
-#import "FloatValueWithUnits.h"
 
 @interface BasicInformationViewController ()
 {
@@ -33,14 +27,25 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
 
 -(void)dealloc
 {
-    checkboxempty = nil;
-    checkboxfull = nil;
     segGender = nil;
     segHeightUnits = nil;
     segWeightUnits = nil;
     buttonLLArm = nil;
+    buttonLLLeg = nil;
+    buttonLUArm = nil;
+    buttonLULeg = nil;
+    buttonRLArm = nil;
+    buttonRLLeg = nil;
+    buttonRUArm = nil;
+    buttonRULeg = nil;
+    textFieldAge = nil;
+    textFieldHeight = nil;
+    textFieldWeight = nil;
+    buttonValidate = nil;
     detailItem = nil;
-    
+    checkboxempty = nil;
+    checkboxfull = nil;
+    enabledViews = nil;
 }
 
 -(void)setDetailItem:(BasicInformation*)newDetailItem
@@ -54,99 +59,73 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
     [super viewDidLoad];
     checkboxempty = @"checkbox_empty";
     checkboxfull = @"checkbox_full";
-    enabledViews = [NSMutableArray arrayWithObjects:segGender,segHeightUnits,segWeightUnits,
-                    textFieldWeight,textFieldAge, textFieldHeight,buttonLLArm, buttonLLLeg,
+    enabledViews = [NSMutableArray arrayWithObjects: segGender, segHeightUnits,segWeightUnits,
+                    textFieldWeight, textFieldAge, textFieldHeight, buttonLLArm, buttonLLLeg,
                     buttonLUArm, buttonLULeg, buttonRLArm, buttonRLLeg, buttonRUArm, buttonRULeg, nil ];
     
     [self configureView];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(void)configureView
 {
     if (detailItem != nil){
         if ([[self detailItem]isSet]){
             [[self buttonValidate]setTitle:@"Unlock Information" forState:UIControlStateNormal];
-            [[self textFieldHeight]setText:[[[self detailItem]height]valueDescription]];
-            [[self textFieldWeight]setText:[[[self detailItem]weight]valueDescription]];
-            [[self textFieldAge]setText:[NSString stringWithFormat:@"%d", [[[self detailItem]age]age]]];
+            [[self textFieldHeight]setText:[[[self detailItem]height]valueAsString]];
+            [[self textFieldWeight]setText:[[[self detailItem]weight]valueAsString]];
+            [[self textFieldAge]setText: [[[self detailItem]age]valueAsString]];
             if ([[[self detailItem]gender]gender] =='f')
                 [[self segGender]setSelectedSegmentIndex:1];
             
             else if ([[[self detailItem]gender]gender] =='m')
                 [[self segGender]setSelectedSegmentIndex:0];
             
-            if ([[[self detailItem]weight]unit]== KG)
+            if ([[[self detailItem]weight]units]== KG)
                 [[self segWeightUnits]setSelectedSegmentIndex:0];
             
-            else if ([[[self detailItem]weight]unit]== LB)
+            else if ([[[self detailItem]weight]units]== LB)
                 [[self segWeightUnits]setSelectedSegmentIndex:1];
             
-            if ([[[self detailItem]height]unit] == CM)
+            if ([[[self detailItem]height]units] == CM)
                 [[self segHeightUnits]setSelectedSegmentIndex:0];
             
-            else if ([[[self detailItem]height]unit] == IN)
+            else if ([[[self detailItem]height]units] == IN)
                 [[self segHeightUnits]setSelectedSegmentIndex:1];
             
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_leg"] == [NSNumber numberWithBool:YES]){
                 [[self buttonRULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rul = YES;
             }
-            else{
-                [[self buttonRULeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
-            }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_leg"] == [NSNumber numberWithBool:YES]){
                 [[self buttonLULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                  lul = YES;
-            }
-            else{
-                [[self buttonLULeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_leg"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLLLeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 lll = YES;
             }
-            else{
-                [[self buttonLLLeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
-            }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_lower_leg"] == [NSNumber numberWithBool:YES]){
                 [[self buttonRLLeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rll = YES;
-            }
-            else{
-                [[self buttonRLLeg]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 lua = YES;
             }
-            else{
-                [[self buttonLUArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
-            }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 lla = YES;
-            }
-            else{
-                [[self buttonLLArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_arm"] == [NSNumber numberWithBool:YES]){
                 [[self buttonRUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rua = YES;
             }
-            else{
-                [[self buttonRUArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
-            }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_lower_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rla = YES;
-            }
-            else{
-                [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxempty] forState:UIControlStateNormal];
             }
             for (UIControl* con in enabledViews){
                 [con setEnabled:NO];
@@ -154,16 +133,6 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         }
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(IBAction)updateLUA:(id)sender
 {
@@ -328,6 +297,7 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         }
         [[self buttonValidate]setTitle:@"Lock Information" forState:UIControlStateNormal];
         [[self detailItem]setIsSet:NO];
+        [[self detailItem] postDidChangeNotification];
     }
     else if (!isWeightMatch){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for weight" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter weight" otherButtonTitles:nil];
@@ -337,6 +307,20 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for height" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter height" otherButtonTitles:nil];
         [alert show];
     }
+    else if ([[self segHeightUnits]selectedSegmentIndex] == UISegmentedControlNoSegment){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No units for height selected" message:@"Select a units for height" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
+        [alert show];
+    }
+    else if ([[ self segWeightUnits]selectedSegmentIndex] == UISegmentedControlNoSegment){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No units for weight selected" message:@"Select a units for weight" delegate:self cancelButtonTitle:@"Try again." otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else if ([[ self segGender] selectedSegmentIndex] == UISegmentedControlNoSegment){
+        UIAlertView *alert = [[ UIAlertView alloc]initWithTitle:@"Gender not selected" message:@"Select a gender" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
+        [alert show];
+    }
+    
     else if (!isAgeMatch){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for age" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter age" otherButtonTitles:nil];
         [alert show];
@@ -368,11 +352,29 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         [alert show];
     }
     else if ([[[[self buttonValidate]titleLabel]text]isEqualToString:@"Lock Information"] && ![[self detailItem]isSet]){
+        /*
+        Weight *w = [[Weight alloc]initWithFloat:[[[self textFieldWeight]text]floatValue]
+                                            unit:(int)[[self segWeightUnits]selectedSegmentIndex]];
+        Height *h = [[Height alloc]initWithFloat:[[[self textFieldHeight]text]floatValue]
+                                            unit:(int) [[self segHeightUnits]selectedSegmentIndex]];
+        Gender *ge = [[Gender alloc]initWithInt:(int)[[self segGender]selectedSegmentIndex]];
+        
+        Amputations *am = [[Amputations alloc]initWithBools_left_lower_leg:lll left_upper_leg:lul left_lower_arm:lla left_upper_arm:lua right_lower_leg:rll right_upper_leg:rul right_lower_arm:rll right_upper_arm:rul];
+        
+        Age *age = [[Age alloc] initWithInteger:(int)[[[self textFieldAge]text]integerValue]];
+        BasicInformation *ba = [[BasicInformation alloc] initWithWeight:w height:h gender:ge amputations:am age:age];
+        [ba setIsSet:YES];
+        [[self detailItem]postDidChangeNotification];
+        [self setDetailItem:ba];
+        [ba postDidChangeNotification];
+        
+        self.detailItem = [[BasicInformation alloc]initWithWeight:w height:h gender:ge amputations:am age:age];
+        [[self detailItem] setIsSet:YES];
+        */
+        
         [[self detailItem]setIsSet:YES];
-        [[self detailItem]setWeight:[[Weight alloc]initWithValue:[[[self textFieldWeight]text]floatValue]
-                                                                       units:(int)[[self segWeightUnits]selectedSegmentIndex]]];
-        [[self detailItem]setHeight:[[Height alloc]initWithValue:[[[self textFieldHeight]text]floatValue]
-                                                                       units:(int)[[self segHeightUnits]selectedSegmentIndex]+2]];
+        [[ self detailItem]setWeight:[[Weight alloc]initWithFloat:[[[self textFieldWeight]text]floatValue] unit: (int)[[ self segWeightUnits]selectedSegmentIndex]]];
+        [[ self detailItem] setHeight:[[Height alloc]initWithFloat:[[[self textFieldHeight] text] floatValue] unit: (int)[[ self segHeightUnits]selectedSegmentIndex]]];
         [[self detailItem]setAge:[[Age alloc]initWithInteger:(int)[[[self textFieldAge]text]integerValue]]];
         if ([[self segGender]selectedSegmentIndex] == 0)
             [[self detailItem]setGender:[[Gender alloc]initWithChar:'m']];
@@ -411,12 +413,15 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
             [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_leg"];
         else
             [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg"];
+         
+         
         
         [[self buttonValidate]setTitle:@"Unlock Information" forState:UIControlStateNormal];
         for (UIControl* con in enabledViews){
             [con setEnabled:NO];
         }
         [[self detailItem]postDidChangeNotification];
+        
     }
 }
 
