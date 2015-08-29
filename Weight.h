@@ -6,18 +6,6 @@
 //  Copyright (c) 2015 Rebecca Koenning. All rights reserved.
 //
 
-/*
-#import <Foundation/Foundation.h>
-#import "FloatValueWithUnits.h"
-
-@interface Weight : FloatValueWithUnits
-
--(id)initWithValue:(float)v units:(UnitType)u;
--(void)convertToUnits:(UnitType)u;
-
-
-@end
-*/
 
 #import <Foundation/Foundation.h>
 #import "NumberValue.h"
@@ -31,7 +19,7 @@ typedef enum
 }WeightUnit;
 
 
-@interface Weight : NSObject <NumberValue>
+@interface Weight : NSObject <NumberValue, NSCopying>
 
 @property (nonatomic) NSNumber* weight;
 @property (nonatomic) WeightUnit units;
@@ -40,6 +28,7 @@ typedef enum
 -(NSString*) unitString;
 -(void) convertTo: (WeightUnit) wu;
 -(NSNumber*) getValueAs:(WeightUnit) wu;
-
+-(Weight*) getWeightAs:(WeightUnit)wu;
+-(instancetype)copyWithZone:(NSZone *)zone;
 
 @end

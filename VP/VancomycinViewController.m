@@ -37,7 +37,6 @@
 {
     basicInformation = [[BasicInformation alloc]init];
     renalInformation = [[RenalInformation alloc] init];
-    //basicInformation = nil;
     objects = [@[basicInformation, renalInformation] mutableCopy];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -59,59 +58,65 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat cellHeight = 50;
+    TableItem *i = objects[indexPath.row];
+    if (![i isSet])
+        return cellHeight;
+    else{
+        CGFloat buffer = 50;
+        NSString *text = [i description];
+        UIFont *font = [ UIFont systemFontOfSize:15.0f];
+        CGFloat height = [text boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, cellHeight) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName: font} context:nil].size.height;
+        return height + buffer;
+    }
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
     UITableViewCell *cell;
     TableItem *thing = objects[indexPath.row];
-    if (indexPath.row == 0){
+    if ([thing isKindOfClass:[BasicInformation class]]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"basicInformationCell" forIndexPath:indexPath];
-        if ([basicInformation isSet]){
-            [[cell detailTextLabel] setText:[basicInformation description]];
-        }
-        else{
-            [[cell detailTextLabel]setText:@""];
-        }
     }
-    else if (indexPath.row == 1){
+    else if ([thing isKindOfClass:[RenalInformation class]]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"renalInformationCell" forIndexPath:indexPath];
     }
-    //if (thing == basicInformation && [basicInformation isSet]){
-        //NSLog(@"%@", @"Equals basic information");
-      //  [[cell detailTextLabel]setText:[basicInformation description]];
-        
-   // }
-    //else{
-      //  [[cell detailTextLabel]setText:@""];
-   // }
-    [[cell textLabel]setText:[thing tableHeader]];
-    return cell;
+    [[cell detailTextLabel]setNumberOfLines:0];
+    [[cell detailTextLabel] setLineBreakMode:NSLineBreakByWordWrapping];
+    NSMutableAttributedString *atr = [[NSMutableAttributedString alloc]initWithString:[thing tableHeader]];
+    [atr addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange(0, [atr length])];
+    [[cell textLabel]setFont:[UIFont boldSystemFontOfSize:20.0]];
+    [[cell textLabel]setAttributedText:atr];
+    
+    if ([thing isSet]){
+        [[cell detailTextLabel]setText:[thing tableDescription]];
+    }
+    else{
+        [[cell detailTextLabel]setText:@""];
+    }
+    
+    
+
+     return cell;
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-
-
-
-
+#pragma mark - Navigaton
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier]isEqualToString:@"toBasicInformation"]){
-        //NSIndexPath *indexPath = [[self tableView]indexPathForSelectedRow];
-        //BasicInformation *item = objects[indexPath.row];
-        //NSLog(@"%@",[item description]);
         [[segue destinationViewController]setDetailItem: basicInformation];
     }
     else if ([[segue identifier] isEqualToString:@"toRenalInformation"]){
@@ -119,27 +124,16 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)tableItemDidChangeNotification:(NSNotification *)notification
 {
     NSUInteger index = [objects indexOfObject:notification.object];
     if (index!=NSNotFound)
     {
-        // The MyWhatsit object that changed in our table; tell the table view it has been updated
         NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
         [self.tableView reloadRowsAtIndexPaths:@[path]
                               withRowAnimation:UITableViewRowAnimationNone];
     }
-    
 }
 /*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -28,7 +28,7 @@ typedef enum
 }HeightUnit;
 
 
-@interface Height : NSObject <NumberValue>
+@interface Height : NSObject <NumberValue, NSCopying>
 
 @property (nonatomic) NSNumber* height;
 @property (nonatomic) HeightUnit units;
@@ -37,6 +37,6 @@ typedef enum
 -(NSString*) unitString;
 -(void) convertTo: (HeightUnit) hu;
 -(NSNumber*) getValueAs:(HeightUnit) hu;
-
+-(instancetype)copyWithZone:(NSZone *)zone;
 
 @end

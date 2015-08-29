@@ -120,6 +120,12 @@
     
 }
 
+-(BOOL)hasAmputations
+{
+    NSArray *array = [[self amps]allValues];
+    
+    
+}
 
 
 @end

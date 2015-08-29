@@ -35,6 +35,8 @@
 @property (nonatomic) NSMutableDictionary *amps;
 @property (nonatomic) NSMutableDictionary *percentages;
 
+-(BOOL) hasAmputations;
+
 
 
 

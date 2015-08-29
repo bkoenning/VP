@@ -33,6 +33,11 @@
     return self;
 }
 
+-(NSString*)tableDescription
+{
+    return [self tableHeader];
+}
+
 
 - (void)postDidChangeNotification
 {

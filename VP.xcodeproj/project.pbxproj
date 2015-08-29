@@ -29,6 +29,7 @@
 		BDE46AC21B7FE19F0092CF5E /* BUN.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC11B7FE19F0092CF5E /* BUN.m */; };
 		BDE46AC51B8010450092CF5E /* RenalInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC41B8010450092CF5E /* RenalInformation.m */; };
 		BDE46AC81B802E920092CF5E /* RenalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC71B802E920092CF5E /* RenalInformationViewController.m */; };
+		BDEDEDB41B80DEAF003E50AC /* GFRInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDEDB31B80DEAF003E50AC /* GFRInformation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		BDE46AC41B8010450092CF5E /* RenalInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenalInformation.m; sourceTree = "<group>"; };
 		BDE46AC61B802E920092CF5E /* RenalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenalInformationViewController.h; sourceTree = "<group>"; };
 		BDE46AC71B802E920092CF5E /* RenalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenalInformationViewController.m; sourceTree = "<group>"; };
+		BDEDEDB21B80DEAF003E50AC /* GFRInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRInformation.h; sourceTree = "<group>"; };
+		BDEDEDB31B80DEAF003E50AC /* GFRInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRInformation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				BDE46AC11B7FE19F0092CF5E /* BUN.m */,
 				BDE46AC31B8010450092CF5E /* RenalInformation.h */,
 				BDE46AC41B8010450092CF5E /* RenalInformation.m */,
+				BDEDEDB21B80DEAF003E50AC /* GFRInformation.h */,
+				BDEDEDB31B80DEAF003E50AC /* GFRInformation.m */,
 			);
 			name = Measures;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				13984F831B2BCB31002F1E47 /* main.m in Sources */,
 				13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */,
 				BDE46AC21B7FE19F0092CF5E /* BUN.m in Sources */,
+				BDEDEDB41B80DEAF003E50AC /* GFRInformation.m in Sources */,
 				13984FC01B2BD780002F1E47 /* Gender.m in Sources */,
 				13984FBC1B2BD780002F1E47 /* Age.m in Sources */,
 				13984FA81B2BCCCA002F1E47 /* VancomycinViewController.m in Sources */,

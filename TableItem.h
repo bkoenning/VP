@@ -18,5 +18,6 @@
 -(id) initWithTitle: (NSString*) title;
 
 -(void)postDidChangeNotification;
+-(NSString*) tableDescription;
 
 @end

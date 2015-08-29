@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicInformationCell" textLabel="wrN-pz-VxR" detailTextLabel="0pW-Pd-yqG" style="IBUITableViewCellStyleSubtitle" id="GdZ-z2-33s">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="basicInformationCell" textLabel="wrN-pz-VxR" detailTextLabel="0pW-Pd-yqG" style="IBUITableViewCellStyleSubtitle" id="GdZ-z2-33s">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GdZ-z2-33s" id="sYn-Uh-eeM">
                                     <autoresizingMask key="autoresizingMask"/>
