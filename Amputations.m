@@ -107,9 +107,6 @@
     [[self percentages]setObject:[NSNumber numberWithFloat: 10.1] forKey:@"left_upper_leg_percent"];
     [[self percentages]setObject:[NSNumber numberWithFloat: 2.7] forKey:@"right_upper_arm_percent"];
     [[self percentages]setObject:[NSNumber numberWithFloat: 2.7] forKey:@"left_upper_arm_percent"];
-    
-    
-    
     return self;
 }
 
@@ -122,10 +119,38 @@
 
 -(BOOL)hasAmputations
 {
-    NSArray *array = [[self amps]allValues];
+   NSArray *array = [[self amps]allValues];
     
-    
+    for (NSObject *obj in array){
+        if (obj == [NSNumber numberWithBool:YES]){
+          return true;
+        }
+    }
+    return false;
 }
 
+-(float)percentLoss
+{
+    NSArray *keys = [[self amps]allKeys];
+    float lost = 0;
+    
+    for (NSString *str in keys){
+        if ([[self amps]valueForKey:str] == [NSNumber numberWithBool:YES]){
+            lost += [[[self percentages] valueForKey:[NSString stringWithFormat:@"%@%@", str, @"_percent"]]floatValue];
+        }
+        
+    }
+    return lost;
+}
+
+-(NSString*)description
+{
+    if (![self hasAmputations]){
+        return @"None";
+    }
+    else{
+        
+    }
+}
 
 @end

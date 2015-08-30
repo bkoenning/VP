@@ -37,6 +37,8 @@
 
 -(BOOL) hasAmputations;
 
+-(float) percentLoss;
+
 
 
 

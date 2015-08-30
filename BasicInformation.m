@@ -112,6 +112,7 @@
         [heightcopy convertTo:IN];
     [string appendString:[heightcopy description]];
     [string appendString:@")"];
+    
     return [NSString stringWithString:string];
 }
 
