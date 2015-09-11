@@ -16,6 +16,7 @@
     NSString *checkboxempty;
     BOOL lua_checked_first, rua_checked_first, lul_checked_first, rul_checked_first;
     NSMutableArray *enabledViews;
+    UITapGestureRecognizer *recognizer;
 }
 -(void)configureView;
 @end
@@ -64,6 +65,9 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
                     buttonLUArm, buttonLULeg, buttonRLArm, buttonRLLeg, buttonRUArm, buttonRULeg, nil ];
     
     [self configureView];
+    recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+    //[recognizer setEnabled:NO];
+    [self.segGender addGestureRecognizer:recognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,10 +102,12 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_leg"] == [NSNumber numberWithBool:YES]){
                 [[self buttonRULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rul = YES;
+                rul_checked_first = YES;
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_leg"] == [NSNumber numberWithBool:YES]){
                 [[self buttonLULeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                  lul = YES;
+                lul_checked_first = YES;
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_leg"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLLLeg]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
@@ -114,6 +120,7 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_upper_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 lua = YES;
+                lua_checked_first = YES;
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"left_lower_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonLLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
@@ -122,11 +129,17 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_upper_arm"] == [NSNumber numberWithBool:YES]){
                 [[self buttonRUArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rua = YES;
+                rua_checked_first = YES;
             }
             if ([[[[self detailItem]amputations]amps]valueForKey:@"right_lower_arm"]== [NSNumber numberWithBool:YES]){
                 [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rla = YES;
             }
+            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"right_upper_arm_checked_first"]== [NSNumber numberWithBool:YES]) rua_checked_first = YES;
+            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"left_upper_arm_checked_first"]== [NSNumber numberWithBool:YES]) lua_checked_first = YES;
+            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"left_upper_leg_checked_first"]== [NSNumber numberWithBool:YES]) lul_checked_first = YES;
+            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"right_upper_leg_checked_first"]== [NSNumber numberWithBool:YES]) rul_checked_first = YES;
+            
             for (UIControl* con in enabledViews){
                 [con setEnabled:NO];
             }
@@ -295,6 +308,12 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         for (UIControl* con in enabledViews){
             [con setEnabled:YES];
         }
+        
+        if (lul_checked_first) [[self buttonLLLeg]setEnabled:NO];
+        if (rul_checked_first) [[self buttonRLLeg]setEnabled:NO];
+        if (rua_checked_first) [[self buttonRLArm]setEnabled:NO];
+        if (lua_checked_first) [[self buttonLLArm] setEnabled:NO];
+        
         [[self buttonValidate]setTitle:@"Lock Information" forState:UIControlStateNormal];
         [[self detailItem]setIsSet:NO];
         [[self detailItem] postDidChangeNotification];
@@ -413,6 +432,14 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
             [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_leg"];
         else
             [[[[self detailItem]amputations]amps]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg"];
+        if (lua_checked_first) [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_arm_checked_first"];
+        else [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_arm_checked_first"];
+        if (rua_checked_first) [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_arm_checked_first"];
+        else [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_arm_checked_first"];
+        if (lul_checked_first) [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:YES] forKey:@"left_upper_leg_checked_first"];
+        else [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:NO] forKey:@"left_upper_leg_checked_first"];
+        if (rul_checked_first) [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:YES] forKey:@"right_upper_leg_checked_first"];
+        else [[[[self detailItem]amputations]checkOrder]setValue:[NSNumber numberWithBool:NO] forKey:@"right_upper_leg_checked_first"];
          
          
         
@@ -425,5 +452,36 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
     }
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   [self.view endEditing:YES];
+    [recognizer setEnabled:NO];
+    //[self.segGender endEditing:YES];
+    //[textFieldAge resignFirstResponder];
+    //[textFieldHeight resignFirstResponder];
+    //[textFieldWeight resignFirstResponder];
+    //[segGender resignFirstResponder];
+    
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [recognizer setEnabled:YES];
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+-(void)hideKeyboard
+{
+    [textFieldWeight resignFirstResponder];
+    [recognizer setEnabled:NO];
+    //[textFieldWeight]
+}
 
 @end

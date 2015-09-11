@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>39E3AE28-2940-4D3A-B3E2-C0568946C32A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>VP</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>025B867F3FAA1A7ED2840127FFBA860BD4EF9A1F</key>
 		<string>https://github.com/bkoenning/VP</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VP.xcodeproj/project.xcworkspace</string>
+	<string>VP.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>025B867F3FAA1A7ED2840127FFBA860BD4EF9A1F</key>

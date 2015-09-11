@@ -10,7 +10,7 @@
 @class BasicInformation;
 
 
-@interface BasicInformationViewController : UIViewController
+@interface BasicInformationViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong,nonatomic) BasicInformation *detailItem;
 

@@ -111,8 +111,11 @@
     else
         [heightcopy convertTo:IN];
     [string appendString:[heightcopy description]];
-    [string appendString:@")"];
-    
+    [string appendString:@")\n"];
+    if ([[self amputations]hasAmputations]){
+        [string appendString:@"Amputations:  "];
+        [string appendString:[[self amputations]description]];
+    }
     return [NSString stringWithString:string];
 }
 

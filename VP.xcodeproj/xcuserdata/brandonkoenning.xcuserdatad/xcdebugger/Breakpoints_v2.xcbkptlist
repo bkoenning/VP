@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VP/BasicInformationViewController.m"
-            timestampString = "461121737.783264"
+            timestampString = "463684233.089557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "429"
-            endingLineNumber = "429"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
             landmarkName = "@implementation BasicInformationViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -54,11 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VP/BasicInformationViewController.m"
-            timestampString = "461121737.783264"
+            timestampString = "463684233.089557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-validateAndLockInformation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -70,11 +70,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VP/BasicInformationViewController.m"
-            timestampString = "461121737.783264"
+            timestampString = "463684233.089557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "-validateAndLockInformation:"
             landmarkType = "5">
          </BreakpointContent>

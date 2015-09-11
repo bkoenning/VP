@@ -72,10 +72,16 @@
     if (![i isSet])
         return cellHeight;
     else{
-        CGFloat buffer = 50;
-        NSString *text = [i description];
-        UIFont *font = [ UIFont systemFontOfSize:15.0f];
-        CGFloat height = [text boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, cellHeight) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName: font} context:nil].size.height;
+        CGFloat buffer = 40;
+        NSString *text = [i tableDescription];
+        //NSAttributedString *text = [[NSAttributedString alloc]initWithString:[i tableDescription]];
+        
+        NSLog(@"%@",text);
+        UIFont *font = [ UIFont systemFontOfSize:10.0f];
+       CGFloat height = ceilf([text boundingRectWithSize:CGSizeMake(tableView.frame.size.width, 0) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName: font} context:nil].size.height);
+        
+      //  CGFloat height = ceilf([text boundingRectWithSize:CGSizeMake(tableView.frame.size.width, cellHeight) options: (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) context:nil].size.height);
+        NSLog(@"%g",height);
         return height + buffer;
     }
 }
@@ -91,6 +97,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"renalInformationCell" forIndexPath:indexPath];
     }
     [[cell detailTextLabel]setNumberOfLines:0];
+    [[cell detailTextLabel]setFont:[UIFont fontWithName:@"Helvetica" size:10.0f]];
     [[cell detailTextLabel] setLineBreakMode:NSLineBreakByWordWrapping];
     NSMutableAttributedString *atr = [[NSMutableAttributedString alloc]initWithString:[thing tableHeader]];
     [atr addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange(0, [atr length])];
@@ -98,7 +105,9 @@
     [[cell textLabel]setAttributedText:atr];
     
     if ([thing isSet]){
-        [[cell detailTextLabel]setText:[thing tableDescription]];
+        NSAttributedString *text = [[NSAttributedString alloc]initWithString:[thing tableDescription]];
+       // [[cell detailTextLabel]setText:[thing tableDescription]];
+        [[cell detailTextLabel]setAttributedText:text];
     }
     else{
         [[cell detailTextLabel]setText:@""];
