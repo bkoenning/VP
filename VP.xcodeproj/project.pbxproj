@@ -25,6 +25,7 @@
 		13984FC41B2BD7A0002F1E47 /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC31B2BD7A0002F1E47 /* Weight.m */; };
 		13984FC71B2BD7D2002F1E47 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 13984FC61B2BD7D2002F1E47 /* TableItem.m */; };
 		BD51004A1B76F9F20006C51B /* IdealBodyWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5100491B76F9F20006C51B /* IdealBodyWeight.m */; };
+		BD7125B41BA49ED700AFCCB2 /* CockcroftGaultClearance.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7125B31BA49ED700AFCCB2 /* CockcroftGaultClearance.m */; };
 		BDA1A46E1B7EDE6E000FC731 /* SerumCreatinine.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA1A46D1B7EDE6E000FC731 /* SerumCreatinine.m */; };
 		BDE46AC21B7FE19F0092CF5E /* BUN.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC11B7FE19F0092CF5E /* BUN.m */; };
 		BDE46AC51B8010450092CF5E /* RenalInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE46AC41B8010450092CF5E /* RenalInformation.m */; };
@@ -78,6 +79,8 @@
 		13984FC61B2BD7D2002F1E47 /* TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
 		BD5100481B76F9F20006C51B /* IdealBodyWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdealBodyWeight.h; sourceTree = "<group>"; };
 		BD5100491B76F9F20006C51B /* IdealBodyWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdealBodyWeight.m; sourceTree = "<group>"; };
+		BD7125B21BA49ED700AFCCB2 /* CockcroftGaultClearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CockcroftGaultClearance.h; sourceTree = "<group>"; };
+		BD7125B31BA49ED700AFCCB2 /* CockcroftGaultClearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CockcroftGaultClearance.m; sourceTree = "<group>"; };
 		BDA1A46C1B7EDE6E000FC731 /* SerumCreatinine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerumCreatinine.h; sourceTree = "<group>"; };
 		BDA1A46D1B7EDE6E000FC731 /* SerumCreatinine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerumCreatinine.m; sourceTree = "<group>"; };
 		BDD76EF51B7599200040EF32 /* NumberValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberValue.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				BDE46AC41B8010450092CF5E /* RenalInformation.m */,
 				BDEDEDB21B80DEAF003E50AC /* GFRInformation.h */,
 				BDEDEDB31B80DEAF003E50AC /* GFRInformation.m */,
+				BD7125B21BA49ED700AFCCB2 /* CockcroftGaultClearance.h */,
+				BD7125B31BA49ED700AFCCB2 /* CockcroftGaultClearance.m */,
 			);
 			name = Measures;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				BDEDEDB41B80DEAF003E50AC /* GFRInformation.m in Sources */,
 				13984FC01B2BD780002F1E47 /* Gender.m in Sources */,
 				13984FBC1B2BD780002F1E47 /* Age.m in Sources */,
+				BD7125B41BA49ED700AFCCB2 /* CockcroftGaultClearance.m in Sources */,
 				13984FA81B2BCCCA002F1E47 /* VancomycinViewController.m in Sources */,
 				13984FBE1B2BD780002F1E47 /* BasicInformation.m in Sources */,
 				13984FBD1B2BD780002F1E47 /* Amputations.m in Sources */,

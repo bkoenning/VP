@@ -47,6 +47,7 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
     checkboxempty = nil;
     checkboxfull = nil;
     enabledViews = nil;
+    recognizer = nil;
 }
 
 -(void)setDetailItem:(BasicInformation*)newDetailItem
@@ -66,8 +67,6 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
     
     [self configureView];
     recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
-    //[recognizer setEnabled:NO];
-    [self.segGender addGestureRecognizer:recognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,11 +134,6 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
                 [[self buttonRLArm]setImage:[UIImage imageNamed:checkboxfull] forState:UIControlStateNormal];
                 rla = YES;
             }
-            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"right_upper_arm_checked_first"]== [NSNumber numberWithBool:YES]) rua_checked_first = YES;
-            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"left_upper_arm_checked_first"]== [NSNumber numberWithBool:YES]) lua_checked_first = YES;
-            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"left_upper_leg_checked_first"]== [NSNumber numberWithBool:YES]) lul_checked_first = YES;
-            //if ([[[[self detailItem]amputations]checkOrder]valueForKey:@"right_upper_leg_checked_first"]== [NSNumber numberWithBool:YES]) rul_checked_first = YES;
-            
             for (UIControl* con in enabledViews){
                 [con setEnabled:NO];
             }
@@ -456,12 +450,6 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
 {
    [self.view endEditing:YES];
     [recognizer setEnabled:NO];
-    //[self.segGender endEditing:YES];
-    //[textFieldAge resignFirstResponder];
-    //[textFieldHeight resignFirstResponder];
-    //[textFieldWeight resignFirstResponder];
-    //[segGender resignFirstResponder];
-    
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -480,8 +468,9 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
 -(void)hideKeyboard
 {
     [textFieldWeight resignFirstResponder];
+    [textFieldAge resignFirstResponder];
+    [textFieldHeight resignFirstResponder];
     [recognizer setEnabled:NO];
-    //[textFieldWeight]
 }
 
 @end

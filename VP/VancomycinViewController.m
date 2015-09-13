@@ -74,14 +74,9 @@
     else{
         CGFloat buffer = 40;
         NSString *text = [i tableDescription];
-        //NSAttributedString *text = [[NSAttributedString alloc]initWithString:[i tableDescription]];
-        
-        NSLog(@"%@",text);
-        UIFont *font = [ UIFont systemFontOfSize:10.0f];
+
+        UIFont *font = [ UIFont systemFontOfSize:12.0f];
        CGFloat height = ceilf([text boundingRectWithSize:CGSizeMake(tableView.frame.size.width, 0) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName: font} context:nil].size.height);
-        
-      //  CGFloat height = ceilf([text boundingRectWithSize:CGSizeMake(tableView.frame.size.width, cellHeight) options: (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) context:nil].size.height);
-        NSLog(@"%g",height);
         return height + buffer;
     }
 }
@@ -97,7 +92,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"renalInformationCell" forIndexPath:indexPath];
     }
     [[cell detailTextLabel]setNumberOfLines:0];
-    [[cell detailTextLabel]setFont:[UIFont fontWithName:@"Helvetica" size:10.0f]];
+    [[cell detailTextLabel]setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
     [[cell detailTextLabel] setLineBreakMode:NSLineBreakByWordWrapping];
     NSMutableAttributedString *atr = [[NSMutableAttributedString alloc]initWithString:[thing tableHeader]];
     [atr addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange(0, [atr length])];
@@ -106,7 +101,6 @@
     
     if ([thing isSet]){
         NSAttributedString *text = [[NSAttributedString alloc]initWithString:[thing tableDescription]];
-       // [[cell detailTextLabel]setText:[thing tableDescription]];
         [[cell detailTextLabel]setAttributedText:text];
     }
     else{
