@@ -313,7 +313,7 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         [[self detailItem] postDidChangeNotification];
     }
     else if (!isWeightMatch){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for weight" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter weight" otherButtonTitles:nil];
+        UIAlertController *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for weight" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter weight" otherButtonTitles:nil];
         [alert show];
     }
     else if (!isHeightMatch){
