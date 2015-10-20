@@ -13,8 +13,8 @@
 
 typedef enum
 {
-    MILLIGRAMS_PER_DECILITER,
-    MICRO_MOLES_PER_LITER
+    MG_PER_DECILITER,
+    MICRO_MOL_PER_LITER
     
 }SerumCreatinineConcentrationUnit;
 

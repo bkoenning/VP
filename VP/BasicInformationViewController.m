@@ -313,56 +313,80 @@ buttonLULeg,buttonRLArm,buttonRLLeg,buttonRUArm,buttonRULeg,textFieldAge,textFie
         [[self detailItem] postDidChangeNotification];
     }
     else if (!isWeightMatch){
-        UIAlertController *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for weight" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter weight" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid entry for weight" message:@"Re-enter weight" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     }
     else if (!isHeightMatch){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for height" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter height" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid entry for height" message:@"Re-enter height" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if ([[self segHeightUnits]selectedSegmentIndex] == UISegmentedControlNoSegment){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No units for height selected" message:@"Select a units for height" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No units for height selected" message:@"Select a unit for height" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if ([[ self segWeightUnits]selectedSegmentIndex] == UISegmentedControlNoSegment){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No units for weight selected" message:@"Select a units for weight" delegate:self cancelButtonTitle:@"Try again." otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No units for weight selected" message:@"Select a unit for weight" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     
     else if ([[ self segGender] selectedSegmentIndex] == UISegmentedControlNoSegment){
-        UIAlertView *alert = [[ UIAlertView alloc]initWithTitle:@"Gender not selected" message:@"Select a gender" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Gender not selected" message:@"Select a gender" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     
     else if (!isAgeMatch){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid entry for age" message:@"Contains an invalid numerical format" delegate:self cancelButtonTitle:@"Re-enter age" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Age contains an invalid number format" message:@"Re-enter age" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if (isAgeMatch && ([[self.textFieldAge text]longLongValue] < 18L || [[self.textFieldAge text] longLongValue] > 105L )){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Age must be between 18 and 105 years" message:@"Age is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid age" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Age is out of range" message:@"Age must be between 18 and 105 years" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
         
     }
     else if (isWeightMatch && [self.segWeightUnits selectedSegmentIndex] ==1 && ([[self.textFieldWeight text]floatValue] < 77 ||
                                                                                  [[self.textFieldWeight text]floatValue] > 374)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Weight must be between 77 and 374 pounds" message:@"Weight is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid weight" otherButtonTitles:nil];
-        [alert show];
+      //  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Weight must be between 77 and 374 pounds" message:@"Weight is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid weight" otherButtonTitles:nil];
+        //[alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Weight is out of range" message:@"Weight must be between 77 and 374 pounds" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if (isWeightMatch && [self.segWeightUnits selectedSegmentIndex] == 0 && ([[self.textFieldWeight text]floatValue] < 35 ||
                                                                                   [[self.textFieldWeight text]floatValue] > 170)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Weight must be between 35 and 170 kilograms" message:@"Weight is invalid" delegate:self cancelButtonTitle:@"Re-enter with a vailid weight" otherButtonTitles:nil];
-        [alert show];
-        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Weight is out of range" message:@"Weight must be between 35 and 170 pounds" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if (isHeightMatch && [self.segHeightUnits selectedSegmentIndex] == 1 && ([[self.textFieldHeight text]floatValue] < 60 ||
                                                                                   [[self.textFieldHeight text]floatValue] > 90)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Height must be between 60 and 90 inches" message:@"Height is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid height" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Height is out of range" message:@"Height must be between 60 and 90 inches" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if (isHeightMatch && [self.segHeightUnits selectedSegmentIndex] == 0 && ([[self.textFieldHeight text]floatValue] < 152.4 ||
                                                                                   [[self.textFieldHeight text]floatValue] > 228.6)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Height must be between 152.4 and 228.6 centimeters" message:@"Height is invalid" delegate:self cancelButtonTitle:@"Re-enter with a valid height" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Height is out of range" message:@"Height must be between 152.4 and 228.6 centimeters" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else if ([[[[self buttonValidate]titleLabel]text]isEqualToString:@"Lock Information"] && ![[self detailItem]isSet]){
         /*

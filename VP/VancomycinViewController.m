@@ -12,6 +12,9 @@
 #import "BasicInformationViewController.h"
 #import "RenalInformation.h"
 #import "RenalInformationViewController.h"
+#import "CalculatedClearanceTableItem.h"
+#import "DialysisTableItem.h"
+#import "CalculatedClearanceTableViewController.h"
 
 @interface VancomycinViewController ()
 {
@@ -37,6 +40,7 @@
 {
     basicInformation = [[BasicInformation alloc]init];
     renalInformation = [[RenalInformation alloc] init];
+    //NSLog(@"%@", [[renalInformation dialysisItem]tableDescription]);
     objects = [@[basicInformation, renalInformation] mutableCopy];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -106,10 +110,7 @@
     else{
         [[cell detailTextLabel]setText:@""];
     }
-    
-    
-
-     return cell;
+    return cell;
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,11 +120,15 @@
 #pragma mark - Navigaton
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier]isEqualToString:@"toBasicInformation"]){
+   if ([[segue identifier]isEqualToString:@"toBasicInformation"]){
         [[segue destinationViewController]setDetailItem: basicInformation];
+       
     }
     else if ([[segue identifier] isEqualToString:@"toRenalInformation"]){
-        [[segue destinationViewController]setDetailItem:renalInformation];
+        [[segue destinationViewController]setRenalDetailItem:renalInformation];
+    }
+    else{
+        [[segue destinationViewController]setDetailItem: basicInformation];
     }
 }
 

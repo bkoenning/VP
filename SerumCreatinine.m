@@ -23,7 +23,7 @@ const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
 
 -(instancetype) init
 {
-    self = [self initWithFloat:0 andUnits:MILLIGRAMS_PER_DECILITER];
+    self = [self initWithFloat:0 andUnits:MG_PER_DECILITER];
     return self;
 }
 
@@ -37,11 +37,11 @@ const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
 
 -(NSString*)unitString
 {
-    if ([self units] == MILLIGRAMS_PER_DECILITER){
+    if ([self units] == MG_PER_DECILITER){
         return [NSString stringWithFormat:@"%@", @"mg/dL"];
     }
     else{
-        return [NSString stringWithFormat:@"%@",@"\u00B5mol/dL"];
+        return [NSString stringWithFormat:@"%@",@"\u00B5mol/L"];
     }
 }
 
@@ -52,11 +52,11 @@ const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
 
 -(void)convertTo:(SerumCreatinineConcentrationUnit)un
 {
-    if (un == MILLIGRAMS_PER_DECILITER && [self units] == MICRO_MOLES_PER_LITER){
+    if (un == MG_PER_DECILITER && [self units] == MICRO_MOL_PER_LITER){
         [self setValue:[NSNumber numberWithFloat:[[self value]floatValue] / MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER]];
         [self setUnits:un];
     }
-    else if (un == MICRO_MOLES_PER_LITER && [self units] == MILLIGRAMS_PER_DECILITER){
+    else if (un == MICRO_MOL_PER_LITER && [self units] == MG_PER_DECILITER){
         [self setValue:[NSNumber numberWithFloat:[[self value]floatValue] * MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER]];
         [self setUnits:un];
     }

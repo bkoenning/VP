@@ -7,7 +7,12 @@
 //
 
 #import "TableItem.h"
+@class DialysisTableItem;
+@class CalculatedClearanceInformation;
 
 @interface RenalInformation : TableItem
+
+@property DialysisTableItem *dialysisItem;
+@property CalculatedClearanceInformation *clearanceItem;
 
 @end
