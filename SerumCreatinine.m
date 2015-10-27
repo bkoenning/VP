@@ -7,20 +7,33 @@
 //
 
 #import "SerumCreatinine.h"
-const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
+//const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
 
 @implementation SerumCreatinine
 
-@synthesize  value, units;
-
--(instancetype)initWithFloat:(float)val andUnits:(SerumCreatinineConcentrationUnit)un
+-(instancetype)initWithCreatinineAmount:(Creatinine *)cr andVolume:(Volume *)v
 {
-    self = [super init];
-    [self setValue:[NSNumber numberWithFloat: val]];
-    [self setUnits:un];
+    self = [super initWithCreatinineAmount:cr andVolume:v];
     return  self;
 }
 
+-(instancetype)init
+{
+    self = [self initWithCreatinineAmount:[[Creatinine alloc]initWithMassFloat:0 massUnit:MILLIGRAM] andVolume:[[Volume alloc]initWithFloat:1 andUnits:DL]];
+    return self;
+}
+
+//@synthesize  value, units;
+
+//-(instancetype)initWithFloat:(float)val andUnits:(SerumCreatinineConcentrationUnit)un
+//{
+  //  self = [super init];
+   // [self setValue:[NSNumber numberWithFloat: val]];
+   // [self setUnits:un];
+    //return  self;
+//}
+
+/*
 -(instancetype) init
 {
     self = [self initWithFloat:0 andUnits:MG_PER_DECILITER];
@@ -61,4 +74,5 @@ const float MICROMOLES_PER_LITER_PER_MILLIGRAMS_PER_DECILITER = 88.4;
         [self setUnits:un];
     }
 }
+ */
 @end

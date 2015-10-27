@@ -7,24 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NumberValue.h"
+#import "CreatinineConcentration.h"
+#import "Creatinine.h"
+#import "Volume.h"
+//#import "NumberValue.h"
 
 
 
-typedef enum
-{
-    MG_PER_DECILITER,
-    MICRO_MOL_PER_LITER
+//typedef enum
+//{
+  //  MG_PER_DECILITER,
+    //MICRO_MOL_PER_LITER
     
-}SerumCreatinineConcentrationUnit;
+//}SerumCreatinineConcentrationUnit;
 
-@interface SerumCreatinine : NSObject <NumberValue>
+//@interface SerumCreatinine : NSObject <NumberValue>
+@interface SerumCreatinine : CreatinineConcentration
 
-@property (nonatomic) NSNumber *value;
-@property (nonatomic) SerumCreatinineConcentrationUnit units;
-
--(instancetype) initWithFloat: (float)val andUnits: (SerumCreatinineConcentrationUnit) un;
--(void)convertTo: (SerumCreatinineConcentrationUnit) un;
 
 
 @end
+
+//@property (nonatomic) NSNumber *value;
+//@property (nonatomic) SerumCreatinineConcentrationUnit units;
+
+//-(instancetype) initWithFloat: (float)val andUnits: (SerumCreatinineConcentrationUnit) un;
+//-(void)convertTo: (SerumCreatinineConcentrationUnit) un;
+
+
+//@end
